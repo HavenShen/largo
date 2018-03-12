@@ -1,7 +1,7 @@
-package main
+package routes
 
 import (
-	"github.com/HavenShen/largo/routes"
+	"github.com/HavenShen/largo/logger"
 	"github.com/gorilla/mux"
 	"net/http"
 )
@@ -9,11 +9,11 @@ import (
 func NewRouter() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
 
-	for _, route := range routes.GetApi() {
+	for _, route := range GetApi() {
 		var handler http.Handler
 
 		handler = route.HandlerFunc
-		handler = Logger(handler, route.Name)
+		handler = logger.LoggerRoute(handler, route.Name)
 
 		router.Methods(route.Method).Path(route.Pattern).Name(route.Name).Handler(handler)
 	}
