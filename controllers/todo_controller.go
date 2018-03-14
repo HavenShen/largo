@@ -18,3 +18,11 @@ func TodoIndex(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 }
+
+func TodoIndexPost(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(http.StatusOK)
+	if err := json.NewEncoder(w).Encode(models.GetTodos()); err != nil {
+		panic(err)
+	}
+}

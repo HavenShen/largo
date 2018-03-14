@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/HavenShen/largo/config"
+	// "github.com/HavenShen/largo/config"
 	"github.com/HavenShen/largo/routes"
 	"log"
 	"net/http"

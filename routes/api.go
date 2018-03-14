@@ -17,6 +17,12 @@ var api = Routes{
 		"/todos",
 		controllers.TodoIndex,
 	},
+	Route{
+		"TodoIndexPost",
+		"POST",
+		"/todos",
+		controllers.TodoIndexPost,
+	},
 }
 
 func GetApi() Routes {
